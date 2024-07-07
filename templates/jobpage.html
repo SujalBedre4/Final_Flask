@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'bootstrap.html' %}
+    <title>{{job.title}} - Astronaut</title>
+</head>
+
+<body>
+    <div>
+        {% include 'nav.html' %}
+        {% include 'banner.html' %}
+        {% include 'container.html' %}
+        <h3 class="mb-2">Title</h3>
+        <p class="lead mt-0">{{job.title}}</p>
+        <h3>Location</h3>
+        <p>{{job.location}}</p>
+        <h4>Salary</h4>
+        <p>{{job.currency}}{{job.salary}}</p>
+        <h3>Responsibilities</h3>
+        {% for line in job.responsibilities.split("\n") %}
+        <li type="square">{{line}}</li>
+        {% endfor %}
+        <!-- <p>{{job.responsibilities}}</p> -->
+        <h3>Requirements</h3>
+        {% for jobs in job.responsibilities.split("\n") %}
+        <li type="bullet">{{jobs}}</li>
+        {% endfor %}
+        <!-- <p>{{job.requirement}}</p> -->
+         {% include 'application.html' %} 
+    </div>
+    {% include 'foot.html' %}
+</body>
+
+</html>
